@@ -426,6 +426,17 @@ security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
 socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
+name = "sse-starlette"
+version = "0.7.2"
+description = "\"SSE plugin for Starlette\","
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+starlette = "*"
+
+[[package]]
 name = "starlette"
 version = "0.14.2"
 description = "The little ASGI library that shines."
@@ -491,7 +502,7 @@ standard = ["websockets (>=8.0.0,<9.0.0)", "watchgod (>=0.6)", "python-dotenv (>
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "126724bf6796f472a121643bdcfed3bac260d43ee1dc802d349ada969d793256"
+content-hash = "b7e40877c7228f3782705b861612784fa67a7cfba4d77182a3adaced9bc0f3b5"
 
 [metadata.files]
 aioredis = [
@@ -893,6 +904,10 @@ regex = [
 requests = [
     {file = "requests-2.25.1-py2.py3-none-any.whl", hash = "sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e"},
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
+]
+sse-starlette = [
+    {file = "sse-starlette-0.7.2.tar.gz", hash = "sha256:ae6fd9be099b6016aa7d0b226fb1aa7324f4ecb67ddfd808b7838f12e9f5d29d"},
+    {file = "sse_starlette-0.7.2-py3-none-any.whl", hash = "sha256:8570168e2d2c0c1d230649a8ded333e02c6986e3c9010f3e553b966c35b42238"},
 ]
 starlette = [
     {file = "starlette-0.14.2-py3-none-any.whl", hash = "sha256:3c8e48e52736b3161e34c9f0e8153b4f32ec5d8995a3ee1d59410d92f75162ed"},

@@ -22,7 +22,6 @@ def setup_middleware(api: FastAPI) -> None:
         request: Request, call_next: Callable[[Request], Awaitable[Response]]
     ) -> Response:
         start_request = perf_counter()
-        logger.debug(call_next)
         response = await call_next(request)
         response_time = perf_counter() - start_request
         response.headers["x-app-response-time"] = f"{response_time:.8f}"

@@ -12,6 +12,9 @@ formatters:
     fmt: '%(asctime)s %(levelprefix)-9s %(name)s -: %(client_addr)s - "%(request_line)s" %(status_code)s'
     use_colors: True
 
+  simple:
+    fmt: 'coool %(levelprefix)-9s %(name)s -: %(message)s'
+
 handlers:
   console:
     class: logging.StreamHandler
@@ -23,11 +26,21 @@ handlers:
     formatter: access
     stream: ext://sys.stdout
 
+  custom:
+    class: app.logging.QLogHandler
+    formatter: simple
+
+
 loggers:
   "":
     level: DEBUG
     handlers:
       - console
+    propagate: False
+  hello:
+    level: DEBUG
+    handlers:
+      - custom
     propagate: False
   fastapi:
     level: DEBUG

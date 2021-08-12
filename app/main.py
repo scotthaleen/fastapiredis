@@ -1,12 +1,16 @@
 # type: ignore[attr-defined]
+import asyncio
 import logging
 from logging import Logger
 
 from fastapi import FastAPI
 
+import app.logging
 from app.config import settings
 from app.middleware import setup_middleware
 from app.router import api_router
+import app.routes.background
+
 
 logger: Logger = logging.getLogger(__name__)
 
@@ -30,6 +34,8 @@ async def startup_event() -> None:
     logger.info("startup")
     logger.debug(settings)
     print_debug_routes()
+    app.logging.LOGQ = asyncio.Queue()
+    app.routes.background.on_start()
 
 
 @api.on_event("shutdown")
